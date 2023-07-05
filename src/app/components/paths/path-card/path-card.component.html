@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title" [innerHTML]="path.title"></h5>
+    <p
+      *ngFor="let description of path.description"
+      class="card-text"
+      [innerHTML]="description"
+    ></p>
+
+    <button
+      *ngIf="!!path.steps?.length"
+      type="button"
+      [routerLink]="path.id + '/' + AppRoute.STEPS + '/' + path.steps![0].id"
+      class="btn btn-primary bottom-0 position-absolute mb-3"
+    >
+      Commencer
+    </button>
+    <app-tooltip-img
+      class="bottom-0 position-absolute mb-4 end-0 me-3"
+      imgSrc="assets/flash.png"
+    ></app-tooltip-img>
+  </div>
+</div>

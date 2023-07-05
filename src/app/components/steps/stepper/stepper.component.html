@@ -1,0 +1,31 @@
+<div *ngIf="!!selectedStep" class="row">
+  <div class="col-12">
+    <div class="d-flex justify-content-around">
+      <ng-container *ngFor="let step of steps">
+        <button
+          [ngClass]="{
+            'btn-primary': step.id <= selectedStep.id,
+            'btn-secondary': step.id > selectedStep.id
+          }"
+          class="btn text-white btn-sm rounded-pill"
+          style="width: 2rem; height: 2rem"
+          [disabled]="step.id > selectedStep.id"
+          [routerLink]="AppRoute.STEPS + '/' + step.id"
+        >
+          {{ step.id }}
+        </button>
+        <span
+          *ngIf="step.id < steps!.length"
+          [ngClass]="{
+            'bg-primary': step.id < selectedStep.id,
+            'bg-secondary': step.id >= selectedStep.id
+          }"
+          [style.width]="lineWidth"
+          class="rounded mt-auto mb-auto"
+          style="height: 0.1rem"
+        >
+        </span>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+$button-size: 30px;
+$toggle-img-size: 300px;
+
+.see-more {
+  width: $button-size;
+  height: $button-size;
+}
+
+.tooltip-content {
+  width: $toggle-img-size;
+  height: $toggle-img-size;
+}
+
+.tooltip-custom {
+  .tooltip-arrow:before {
+    opacity: 0;
+  }
+   .tooltip-inner {
+  background: rgba(0, 0,0, 0);
+  width: $toggle-img-size;
+  height: $toggle-img-size;
+  max-width: $toggle-img-size;
+  max-height: $toggle-img-size;
+   }
+}
+
+

@@ -1,0 +1,65 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Pré-requis</li>
+  </ol>
+</nav>
+<h1 class="text-center my-5">Flasher son téléphone</h1>
+<h2 class="mt-4">Pré-requis : Avant de flasher un téléphone</h2>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="needs-validation">
+  <div class="my-4">
+    <p [innerHTML]="REQUIREMENTS.title"></p>
+    <div
+      *ngFor="let req of REQUIREMENTS.list; let i = index"
+      class="form-check"
+    >
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        [formControlName]="'req-' + i"
+      />
+      <label class="form-check-label" [for]="'req-' + i">
+        {{ req }}
+      </label>
+    </div>
+  </div>
+  <div class="my-4">
+    <p [innerHTML]="WARNINGS.title"></p>
+    <div *ngFor="let warn of WARNINGS.list; let i = index" class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value=""
+        [formControlName]="'warn-' + i"
+      />
+      <label class="form-check-label" [for]="'warn-' + i">
+        {{ warn }}
+      </label>
+    </div>
+  </div>
+  <div class="my-4">
+    <p>
+      Si, malgré ces précautions,
+      <span class="fw-bold"
+        >le programme pour flasher le téléphone indique une panne</span
+      >, le téléphone portable reste le même ou ne s'allume même plus, il se
+      peut que quelque chose n'ait pas été fait correctement ou que le hardware
+      de l'ordinateur soit endommagé. S'il s'agit d'une erreur de formatage,
+      l'appareil aura besoin d'un "test point", c'est-à-dire d'un processus
+      utilisé pour restaurer les téléphones défectueux en raison d'un mauvais
+      flashage. Dans tous les cas mentionnés ci-dessus,
+      <span class="fw-bold"
+        >il est préférable de s'en remettre à un.e expert.e.</span
+      >
+    </p>
+  </div>
+  <div class="my-3">
+    <button
+      class="btn btn-primary"
+      type="submit"
+      [disabled]="formGroup.invalid"
+    >
+      Continuer
+    </button>
+  </div>
+</form>

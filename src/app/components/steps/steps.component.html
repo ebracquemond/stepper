@@ -1,0 +1,15 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Pré-requis</a></li>
+    <li class="breadcrumb-item" aria-current="page">
+      <a [href]="AppRoute.PATHS">Cas</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      {{ path?.title }}
+    </li>
+  </ol>
+</nav>
+<div class="my-5">
+  <app-stepper [steps]="path?.steps" [selectedStep]="currentStep"></app-stepper>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,18 @@
+<ng-container *ngIf="!!step; else noContent">
+  <h4
+    *ngFor="let description of step.description"
+    class="text-center"
+    [innerHTML]="description"
+  ></h4>
+  <button
+    *ngIf="hasNextStep"
+    type="button"
+    class="btn btn-primary bottom-0 position-absolute mb-5"
+    (click)="nextStep()"
+  >
+    Suivant
+  </button>
+</ng-container>
+<ng-template #noContent>
+  <app-error></app-error>
+</ng-template>

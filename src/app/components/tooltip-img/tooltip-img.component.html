@@ -1,0 +1,11 @@
+<img
+  #tooltipContent
+  [ngbTooltip]="tooltipImg"
+  tooltipClass="tooltip-custom"
+  role="button"
+  class="see-more"
+  src="assets/eye.svg"
+/>
+<ng-template #tooltipImg
+  ><img class="tooltip-content" [src]="imgSrc" />
+</ng-template>
